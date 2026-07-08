@@ -1,0 +1,28 @@
+---
+import type { WorkflowStep } from '../data/workflow';
+
+interface Props {
+    steps: WorkflowStep[];
+}
+
+const { steps } = Astro.props;
+---
+<section class="container mx-auto py-12">
+    <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+    <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+        {steps.map((step, index) => (
+            <>
+                <div class="text-center max-w-xs">
+                    <div class="flex items-center justify-center w-12 h-12 mx-auto bg-blue-100 text-blue-600 rounded-full text-xl font-bold">
+                        {index + 1}
+                    </div>
+                    <h3 class="text-lg font-semibold mt-4">{step.title}</h3>
+                    <p class="text-gray-600 mt-2">{step.description}</p>
+                </div>
+                {index < steps.length - 1 && (
+                    <div class="text-2xl font-bold text-gray-300 hidden md:block mx-4">→</div>
+                )}
+            </>
+        ))}
+    </div>
+</section>
