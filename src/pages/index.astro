@@ -4,26 +4,28 @@ import Hero from '../components/Hero.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import Workflow from '../components/Workflow.astro';
 import AppointmentForm from '../components/AppointmentForm.astro';
-import { appName, tagline, email, company } from '../data/site.ts';
 import { workflowSteps } from '../data/workflow';
 
 const features = [
     {
-        title: "Appointment Capture",
-        description: "Collect booking requests from your website around the clock."
-    },
-    {
         title: "AI Scheduling",
-        description: "Ask the right questions and guide visitors toward available appointment times."
+        description: "Intelligent scheduling that understands natural language and context."
     },
     {
-        title: "Auto Reminders",
-        description: "Send instant confirmations and reminders so fewer appointments are missed."
+        title: "Calendar Sync",
+        description: "Real-time, two-way synchronization with Google, Outlook, and other calendars."
+    },
+    {
+        title: "Automatic Reminders",
+        description: "Reduce no-shows with automated email and SMS reminders for all parties."
     }
-]
+];
 ---
-<BaseLayout title={appName}>
-    <Hero title={appName} subtitle={tagline} />
+<BaseLayout title="AI Appointment Booking Assistant">
+    <Hero 
+        title="AI Appointment Booking Assistant" 
+        subtitle="Automate appointment booking with AI" 
+    />
     <section class="container mx-auto py-12 px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map(feature => (
@@ -33,9 +35,4 @@ const features = [
     </section>
     <Workflow steps={workflowSteps} />
     <AppointmentForm />
-
-    <div class="text-center py-8">
-        <p><strong>Company:</strong> {company}</p>
-        <p><strong>Contact:</strong> {email}</p>
-    </div>
 </BaseLayout>
